@@ -1,0 +1,45 @@
+.losing {
+
+  &__content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    // absolute чтобы решить проблему с z-index
+  }
+
+  &__game {
+    width: 624px;
+    margin-left: 50px;
+  }
+
+  &__text {
+    color: #1C1C21;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px;
+  }
+
+  &__button {
+    padding: 20px 0;
+    width: calc(100% / 2.1);
+    color: #ffffff;
+    background-color: rgba(255, 139, 55, 1);
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 64px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(240, 104, 8);
+    }
+  }
+}

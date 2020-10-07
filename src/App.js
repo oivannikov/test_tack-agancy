@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import './generalStyles/normolize.scss';
+import './App.scss';
+
+import GameOver from './components/GameOver/GameOver';
+import Start from './components/Start/Start';
+import Game from './components/Game/Game';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <header className="header"> */}
+        {/* <Start /> */}
+      {/* </header> */}
+      <section className="section">
+        <Game />
+      </section>
+      <footer className="footer">
+        {/* <GameOver /> */}
+      </footer>
+    </>
   );
 }
 
