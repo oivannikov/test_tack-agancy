@@ -1,0 +1,50 @@
+@import '../../generalStyles/_var.scss';
+@import '../../generalStyles/_mixins.scss';
+
+.losing {
+
+  &__content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &__game {
+    width: $width-end-game;
+    margin-left: 50px;
+  }
+
+  &__total {
+    font-weight: $global-font-weight;
+    font-size: $global-font-size;
+    color: $color-elements;
+    opacity: 0.5;
+  }
+
+  &__text {
+    color: $color-elements;
+    font-size: 56px;
+  }
+
+  &__button {
+    @include hoverButton;
+    padding: 20px 0;
+    width: $button-width;
+    color: $global-white-color;
+    background-color: $color-button;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: $margin-button;
+    font-family: $global-font;
+    font-weight: $global-font-weight;
+    font-size: $button-font-size;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+}
+
+// Этот код очень похож на страницу которая первая, подумать как изменять контент при проигрыше!!!!

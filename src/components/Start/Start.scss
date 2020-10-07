@@ -1,0 +1,51 @@
+@import '../../generalStyles/_var.scss';
+@import '../../generalStyles/_mixins.scss';
+
+.start {
+
+  &__clip {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 243, 235, 1);
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+  }
+  
+  &__content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &__game {
+    width: $width-start-game;
+    margin-left: 50px;
+  }
+
+  &__text {
+    color: #1C1C21;
+    font-size: 56px;
+  }
+
+  &__button {
+    @include hoverButton;
+    padding: 20px 0;
+    width: $button-width;
+    color: $global-white-color;
+    background-color: $color-button;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: $margin-button;
+    font-family: $global-font;
+    font-weight: $global-font-weight;
+    font-size: $button-font-size;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+}
+
