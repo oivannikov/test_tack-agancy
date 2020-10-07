@@ -10,7 +10,7 @@ function GameOver() {
        <div className="losing__content">
         <ThumbsUp />
         <div className="losing__game">
-          <span>
+          <span className="losing__total">
             Total score:
           </span>
           <h1 className="losing__text">

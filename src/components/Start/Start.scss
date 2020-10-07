@@ -1,3 +1,6 @@
+@import '../../generalStyles/_var.scss';
+@import '../../generalStyles/_mixins.scss';
+
 .start {
 
   &__clip {
@@ -17,11 +20,10 @@
     left: 45%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    // absolute чтобы решить проблему с z-index
   }
 
   &__game {
-    width: 624px;
+    width: $width-start-game;
     margin-left: 50px;
   }
 
@@ -31,24 +33,19 @@
   }
 
   &__button {
+    @include hoverButton;
     padding: 20px 0;
-    width: calc(100% / 2.1);
-    color: #ffffff;
-    background-color: rgba(255, 139, 55, 1);
+    width: $button-width;
+    color: $global-white-color;
+    background-color: $color-button;
     border-radius: 12px;
     text-align: center;
-    margin-top: 64px;
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 20px;
+    margin-top: $margin-button;
+    font-family: $global-font;
+    font-weight: $global-font-weight;
+    font-size: $button-font-size;
     letter-spacing: 0.5px;
     cursor: pointer;
-
-    &:hover {
-      background-color: rgb(240, 104, 8);
-    }
   }
-
-  // Верстать дальше что каксается расстановки блоков спросить
-  // Так как я не понимаю по макету как они должны быть 
 }
+

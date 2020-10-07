@@ -1,0 +1,40 @@
+@mixin flex-spaceBetween {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hoverButton {
+  &:hover {
+    background-color: rgb(240, 104, 8);
+  }
+}
+
+@mixin purse-after-before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 68px;
+  background-color: $global-background-color;
+  bottom: 40%;
+  transform: translateY(-50%);
+}
+
+@mixin answer-after-before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 18px;
+  background-color: $global-background-color;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
