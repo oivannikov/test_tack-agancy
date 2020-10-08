@@ -1,0 +1,36 @@
+@media(max-width: 1280px) {
+  .thumbsUp {
+    &__img {
+      width: 540px;
+      height: 380px;
+    }
+  }
+}
+
+@media(max-width: 1080px) {
+  .thumbsUp {
+    margin: 5% 60% 0 0;
+    &__img {
+      width: 480px;
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .thumbsUp {
+    margin: 0 auto;
+    margin-bottom: 42px;
+  }
+}
+
+@media (max-width: 540px) {
+  .thumbsUp {
+    &__img {
+      width: 340px;
+      height: 250px;
+      padding-top: 80px;
+    }
+  }
+}
+

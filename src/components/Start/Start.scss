@@ -23,8 +23,12 @@
   }
 
   &__game {
-    width: $width-start-game;
+    max-width: $width-start-game;
     margin-left: 50px;
+  }
+
+  &__heading {
+    width: 500px;
   }
 
   &__text {
@@ -49,3 +53,61 @@
   }
 }
 
+@media (max-width: 1280px) {
+  .start {
+    &__content {
+      left: 50%;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .start {
+    &__content {
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100vh;
+    }
+
+    &__game {
+      margin: 0 0 15% 80%;
+    }
+
+    &__text {
+      font-size: 46px;
+    }
+
+    &__heading {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .start {
+    &__game {
+      text-align: center;      
+      margin: 0 auto;
+      margin-bottom: 42px;
+    }
+
+   
+  }
+}
+
+@media (max-width: 540px) {
+  .start {
+    &__text {
+      font-size: 36px;
+    }
+
+    &__heading {
+      max-width: 300px;
+    }
+
+    &__button {
+      padding: 16px 0;
+      font-size: 14px;
+    }
+  }
+}

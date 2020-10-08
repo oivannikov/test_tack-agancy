@@ -4,24 +4,23 @@
 .money {
   @include flex-center;
   height: $global-height;
-  background-color: blue;
 
   &__bill {
     margin-top: 8px;
     color: $color-elements;
     font-size: $button-font-size;
-    border: 1px solid $global-white-color;
+    border: 1px solid $global-background-color;
     background-color: $global-white-color;
     height: 40px;
     width: 240px;
     padding: 8px 24px;
     border-radius: 12px;
     clip-path: polygon(11% 0, 89% 0, 100% 50%, 89% 100%, 11% 100%, 0% 50%);
-    // clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 25% 100%, 5% 70%,1% 60%, 0% 50%, 25% 0%);
   }
 
   &__purse {
     position: relative;
+    z-index: 1;
 
     &::before {
       @include purse-after-before;
@@ -29,8 +28,44 @@
     }
   
     &::after {
-      @include purse-after-before; 
+      @include purse-after-before;
       right: -28%;
     }
   }
+
+  &__pointer-left {
+    width: 34px;
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d8;
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    z-index: 1;
+    transform: rotate(45deg);
+    border-right: none;
+    border-top: none;
+    border-radius: 13px 0 13px 0;
+  }
+
+  &__pointer-right {
+    width: 34px;
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d8;
+    position: absolute;
+    right: 7px;
+    top: 10px;
+    z-index: 1;
+    transform: rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+    border-radius: 13px 0 13px 0;
+  }
 }
+
+// @media (max-width: 1280px) {
+//   .money {
+//     flex-direction: column;
+//   }
+// }

@@ -2,18 +2,46 @@
 @import '../../generalStyles/_mixins.scss';
 
 .answer {
-  margin: 16px;
+  margin: 16px 48px;
   position: relative;
 
   &::before {
     @include answer-after-before;
-    left: -5%;
+    left: -48px;
   }
 
   &::after {
     @include answer-after-before;
-    right: -5%;
+    right: -48px;
   }
+ 
+  &__pointer-left {
+    height: 54px;
+    width: 58px;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d8;
+    position: absolute;
+    left: -20px;
+    top: 11px;
+    transform: rotate(45deg);
+    border-right: none;
+    border-top: none;
+    border-radius: 13px 0 13px 0;
+}
+
+&__pointer-right {
+  height: 54px;
+  width: 58px;
+  background-color: #ffffff;
+  border: 1px solid #d0d0d8;
+  position: absolute;
+  right: -21px;
+  top: 9px;
+  transform: rotate(45deg);
+  border-left: none;
+  border-bottom: none;
+  border-radius: 13px 0 13px 0;
+}
 
   &__text {
     display: inline-block;
@@ -21,12 +49,17 @@
     font-size: $button-font-size;
     border: 1px solid $global-background-color;
     background-color: $global-white-color;
-    height: 23px;
+    z-index: 5;
+    position: relative;
+    border-left: none;
+    border-right: none;
+    // height: 23px;
     width: $width-block-variant-text;
-    padding: 21px 32px;
+    padding: 24px 16px;
     border-radius: 12px;
     // clip-path: polygon(92.32051% 40%, 93.79385% 43.1596%, 94.69616% 46.52704%, 95% 50%, 94.69616% 53.47296%, 93.79385% 56.8404%, 92.32051% 60%, 79.82051% 81.65064%, 77.82089% 84.50639%, 75.35575% 86.97152%, 72.5% 88.97114%, 69.3404% 90.44449%, 65.97296% 91.34679%, 62.5% 91.65064%, 37.5% 91.65064%, 34.02704% 91.34679%, 30.6596% 90.44449%, 27.5% 88.97114%, 24.64425% 86.97152%, 22.17911% 84.50639%, 20.17949% 81.65064%, 7.67949% 60%, 6.20615% 56.8404%, 5.30384% 53.47296%, 5% 50%, 5.30384% 46.52704%, 6.20615% 43.1596%, 7.67949% 40%, 20.17949% 18.34936%, 22.17911% 15.49361%, 24.64425% 13.02848%, 27.5% 11.02886%, 30.6596% 9.55551%, 34.02704% 8.65321%, 37.5% 8.34936%, 62.5% 8.34936%, 65.97296% 8.65321%, 69.3404% 9.55551%, 72.5% 11.02886%, 75.35575% 13.02848%, 77.82089% 15.49361%, 79.82051% 18.34936%);
-    clip-path: polygon(11% 0, 89% 0, 100% 50%, 89% 100%, 11% 100%, 0% 50%);
+    // clip-path: polygon(11% 0, 89% 0, 100% 50%, 89% 100%, 11% 100%, 0% 50%);
+
   }
 
   &__variant {
@@ -35,3 +68,6 @@
     font-weight: $global-font-weight;
   }
 }
+
+// Завтра здесь мне нужно разобраться с позиционированием блоков 
+// и позиционированием черточек возле этих блоков

@@ -14,16 +14,20 @@ function Start() {
         <div className="start__content">
           <ThumbsUp />
           <div className="start__game">
-            <h1 className="start__text"> 
-              Who wants to be
-              <br />
-              a millionaire?
-            </h1>
+            <div className="start__heading">
+              <h1 className="start__text">
+                Who wants to be a millionaire?
+              </h1>
+            </div>
+              {
+                // Не понимаю почему блок не ограничивает ширину текста
+                // если пишу длиный тект он не ограничивается шириной блока
+              }
             <button className="start__button">
               Start
             </button>
           </div>
-
+ 
         </div>
     </div>
   )
