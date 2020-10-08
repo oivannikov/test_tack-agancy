@@ -4,20 +4,20 @@
 .game {
   @include flex-spaceBetween;
   height: $global-height;
-
+  padding-top: 133px;
+  padding-left: 80px;
+  height: calc(100vh - 133px);
 
   &__question {
     width: $width-block-question;
     color: $color-elements;
     font-weight: $global-font-weight;
     font-size: $global-font-size;
-    padding: 133px 0 0 80px;
   }
 
   &__answers {
     display: flex;
-    padding: 0 0 122px 80px;
-    bottom: 15%;
+    margin-bottom: 122px;
   }
 
   &__variant {
@@ -31,7 +31,62 @@
     height: 100%;
     position: absolute;
     right: 0;
+    top: 0;
     background-color: $global-white-color;
     text-align: center;
+  }
+}
+
+@media (max-width: 1280px) {
+  .game {
+    &__answers {
+      flex-direction: column;
+    }
+
+    &__answers-bottom {
+      margin-top: -16px;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .game {
+    &__question {
+      width: 424px;
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .game {
+    align-items: center;
+    padding-top: 133px;
+    padding-left: 0;
+
+    &__money {
+      display: none;
+    }
+
+    &__question {
+      text-align: center;
+      width: calc(100% - 80px);
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .game {
+    &__question {
+      font-size: 18px;
+      width: 288px;
+    }
+
+    &__answers-bottom {
+      margin-top: -8px;
+    }
+    
+    &__answers {
+      margin-bottom: 24px;
+    }
   }
 }

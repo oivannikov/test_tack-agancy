@@ -9,19 +9,17 @@ function GameMoney() {
   // вынести данные в json файл
 
   return (
-    <ul className="money">
+    <div className="money">
       {
         money.map(item => (
           <div className="money__purse" key={item}>
-            <div className="money__pointer-left"></div>
-            <li className="money__bill">
+            <div className="money__bill">
               {item}
-            </li>
-            <div className="money__pointer-right"></div>
+            </div>
           </div>
         ))
       }
-    </ul>
+    </div>
   )
 }
 

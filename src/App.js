@@ -18,12 +18,12 @@ function App() {
       {/* <header className="header">
         <Start />
       </header> */}
-      <section className="section">
+      {/* <section className="section">
         <Game />
-      </section>
-      {/* <footer className="footer">
+      </section> */}
+      <footer className="footer">
         <GameOver />
-      </footer> */}
+      </footer>
     </>
   );
 }

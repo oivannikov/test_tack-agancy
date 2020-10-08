@@ -20,15 +20,15 @@
 @media (max-width: 940px) {
   .thumbsUp {
     margin: 0 auto;
-    margin-bottom: 42px;
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 540px) {
   .thumbsUp {
     &__img {
-      width: 340px;
-      height: 250px;
+      width: 290px;
+      height: 220px;
       padding-top: 80px;
     }
   }

@@ -6,21 +6,20 @@
   height: $global-height;
 
   &__bill {
-    margin-top: 8px;
-    color: $color-elements;
-    font-size: $button-font-size;
-    border: 1px solid $global-background-color;
-    background-color: $global-white-color;
-    height: 40px;
-    width: 240px;
-    padding: 8px 24px;
-    border-radius: 12px;
-    clip-path: polygon(11% 0, 89% 0, 100% 50%, 89% 100%, 11% 100%, 0% 50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__purse {
     position: relative;
-    z-index: 1;
+    background-image: url('../../images/desctopePrice.png');
+    background-repeat: no-repeat;
+    width: 240px;
+    height: 40px;
+    margin-bottom: 8px;
+
 
     &::before {
       @include purse-after-before;
@@ -32,40 +31,4 @@
       right: -28%;
     }
   }
-
-  &__pointer-left {
-    width: 34px;
-    height: 35px;
-    background-color: #ffffff;
-    border: 1px solid #d0d0d8;
-    position: absolute;
-    left: 7px;
-    top: 10px;
-    z-index: 1;
-    transform: rotate(45deg);
-    border-right: none;
-    border-top: none;
-    border-radius: 13px 0 13px 0;
-  }
-
-  &__pointer-right {
-    width: 34px;
-    height: 35px;
-    background-color: #ffffff;
-    border: 1px solid #d0d0d8;
-    position: absolute;
-    right: 7px;
-    top: 10px;
-    z-index: 1;
-    transform: rotate(45deg);
-    border-left: none;
-    border-bottom: none;
-    border-radius: 13px 0 13px 0;
-  }
 }
-
-// @media (max-width: 1280px) {
-//   .money {
-//     flex-direction: column;
-//   }
-// }

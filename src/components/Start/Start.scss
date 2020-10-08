@@ -88,26 +88,25 @@
     &__game {
       text-align: center;      
       margin: 0 auto;
-      margin-bottom: 42px;
+      margin-bottom: 48px;
     }
-
-   
   }
 }
 
 @media (max-width: 540px) {
   .start {
     &__text {
-      font-size: 36px;
+      font-size: 32px;
     }
 
     &__heading {
-      max-width: 300px;
+      max-width: 285px;
     }
 
     &__button {
       padding: 16px 0;
       font-size: 14px;
+      margin-top: 102px;
     }
   }
 }
