@@ -29,7 +29,15 @@
     &__img {
       width: 290px;
       height: 220px;
-      padding-top: 80px;
+      margin-top: 118px;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .thumbsUp {
+    &__img {
+      margin-top: 50px;
     }
   }
 }

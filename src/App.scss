@@ -1,16 +1,10 @@
 @import './generalStyles/_var.scss';
 @import './generalStyles/_mixins.scss';
 
-.header {
-  position: relative;
+.main {
   height: $global-height;
-  // width: 1440px;
-  // height: 900px;
 }
 
-.section {
+.background {
   background: #e5e5e5;
-  height: $global-height;
-  // height: 900px;
-  // width: 1440px;
 }

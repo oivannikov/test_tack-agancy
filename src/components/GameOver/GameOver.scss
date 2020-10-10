@@ -82,9 +82,11 @@
     &__game {
       text-align: center;      
       margin: 0 auto;
-      margin-bottom: 42px;
     }
    
+    &__button {
+      margin-bottom: 42px;
+    }
   }
 }
 
@@ -92,6 +94,7 @@
   .losing {
     &__text {
       font-size: 36px;
+      margin-bottom: 100px;
     }
 
     &__total {
@@ -101,7 +104,7 @@
     &__button {
       padding: 16px 0;
       font-size: 14px;
-      margin-top: 102px;
+      margin-top: 0;
     }
 
     &__game {
@@ -114,11 +117,15 @@
   .losing {
     &__total {
       font-size: 18px;
+      margin-bottom: 50px;
     }
 
     &__game {
       width: 100%;
     }
+
+    &__text {
+      font-size: 32px;
+    }
   }
 }
-

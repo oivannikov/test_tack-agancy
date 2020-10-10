@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import classNames from 'classnames';
+import date from '../../api/date.json';
 
 import '../GameMoney/GameMoney.scss';
 
-function GameMoney() {
-  const money = 
-  ["$500", "$1,000", "$2,000", "$4,000", "$8,000", "$16,000", "$32,000", "$64,000", "$125,000", "$250,000", "$500,000", "$1,000,000"].reverse();
 
-  // вынести данные в json файл
-
-  return (
+function GameMoney({ currentId }) {
+   return (
     <div className="money">
       {
-        money.map(item => (
-          <div className="money__purse" key={item}>
+        [...date].reverse().map(({id, currentPrice}) => (
+            <div
+              className={classNames(
+                "money__purse",
+                {"money__rate": currentId === id, "money__gain": id < currentId}
+              )}
+              key={id}
+            >
             <div className="money__bill">
-              {item}
+              ${currentPrice}
             </div>
           </div>
         ))

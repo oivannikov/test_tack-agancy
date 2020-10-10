@@ -31,4 +31,18 @@
       right: -28%;
     }
   }
+
+  &__rate {
+    background-image: url('../../images/rateDesctop.png');
+    color: #ff8b37;
+
+    &::after,
+    &::before {
+      background-color: #ff8b37
+    }
+  }
+
+  &__gain {
+    color: #d0d0d8;
+  }
 }

@@ -5,7 +5,7 @@ import '../Start/Start.scss';
 
 import ThumbsUp from '../ThumbsUp/ThumbsUp';
 
-function Start() {
+function Start({ handleButton }) {
   return (
     <div className="start">
         <div className="start__clip">
@@ -23,7 +23,10 @@ function Start() {
                 // Не понимаю почему блок не ограничивает ширину текста
                 // если пишу длиный тект он не ограничивается шириной блока
               }
-            <button className="start__button">
+            <button
+              className="start__button"
+              onClick={handleButton}  
+            >
               Start
             </button>
           </div>

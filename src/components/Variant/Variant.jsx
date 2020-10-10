@@ -1,14 +1,19 @@
 import React from 'react';
 
+import classNames from 'classnames';
+
 import '../Variant/Variant.scss';
 
-function Variant() {
+function Variant({ variantText, variantAlphabet, handleVariant, isCorrect, isWrong}) {
   return (
-    <div className="answer">
+    <div
+      className={classNames("answer", {"answer__correct": isCorrect, "answer__wrong": isWrong})}
+      onClick={(e) => handleVariant(e, variantText)}
+    >
       <div className="answer__field"></div>
       <div className="answer__text" href="#">
-        <span className="answer__variant">A</span>
-        10 years
+        <span className="answer__variant">{variantAlphabet}</span>
+        {variantText}
       </div>
     </div>
   )

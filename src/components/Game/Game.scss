@@ -18,6 +18,8 @@
   &__answers {
     display: flex;
     margin-bottom: 122px;
+    flex-wrap: wrap;
+    width: 900px;
   }
 
   &__variant {
@@ -35,12 +37,19 @@
     background-color: $global-white-color;
     text-align: center;
   }
+
+  &__toggle {
+    display: none;
+  }
 }
 
 @media (max-width: 1280px) {
   .game {
     &__answers {
       flex-direction: column;
+      width: 500px;
+      margin-bottom: 80px;
+      align-items: center;
     }
 
     &__answers-bottom {
@@ -67,9 +76,57 @@
       display: none;
     }
 
+    &__hamburger {
+      position: absolute;
+      right: 23px;
+      padding: 14px;
+      width: 18px;
+      height: 12px;
+      top: 0;
+      right: 12px;
+      text-align: center;
+      cursor: pointer;
+
+      &::after {
+        content: '=';
+        background-color: blue;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 20px;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &__toggle:checked ~ {
+      .game__money {
+        display: block;
+        width: 100%;
+        background-color: #e5e5e5;
+        z-index: 10;
+      }
+
+      .game__hamburger::after {
+        content: "X";
+        z-index: 11;
+
+      }
+    }
     &__question {
       text-align: center;
       width: calc(100% - 80px);
+    }
+
+    &__answers {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .game {
+    &__question {
+      font-size: 24px;
     }
   }
 }
