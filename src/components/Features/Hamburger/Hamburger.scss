@@ -2,8 +2,7 @@
   visibility: hidden;
 }
 
-@media(max-width: 940px) {
-  // .hamburger { 
+@media(max-width: 1080px) {
   .hamburger__btn {
     display: flex;
     align-items: center;
@@ -36,14 +35,6 @@
     content: '';
     top: 8px;
   }
-
-  // .hamburger__toggle:checked ~ {
-  //   .game__money {
-  //     visibility: visible;
-  //     z-index: 10;
-  //     background-color: #e5e5e5;
-  //   }
-  // }
 
   .hamburger__toggle:checked ~ .hamburger__btn > span {
     transform: rotate(45deg);
