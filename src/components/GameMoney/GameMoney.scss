@@ -46,3 +46,27 @@
     color: #d0d0d8;
   }
 }
+
+@media (max-width: 440px) {
+  .money {
+    justify-content: flex-end;
+    // padding-top: -32px;
+    // понять как дать ему нижний отступ если будет свойство flex-end
+
+    &__purse {
+      background-image: url('../../images/priceMobile.png');
+      background-repeat: no-repeat;
+      height: 32px;
+    }
+
+    &__rate {
+      background-image: url('../../images/priceMobileActive.png');
+      color: #ff8b37;
+  
+      &::after,
+      &::before {
+        background-color: #ff8b37
+      }
+    }
+  }
+}
