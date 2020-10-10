@@ -39,13 +39,24 @@ function Game({ date, handleGame, getCurrentPrice}) {
       <h3 className="game__question">
         {question}
       </h3>
-      <input
+      {/* <input
           className="game__toggle"
           type="checkbox"
           id="toggle"
           name="toggle"
         />
-        <label className="game__hamburger" htmlFor="toggle"></label>
+        <label className="game__hamburger" htmlFor="toggle">
+          <span></span>
+        </label> */}
+        <input
+          className="menu__toggle"
+          type="checkbox"
+          id="menu__toggle"
+          name="toggle"
+        />
+        <label className="menu__btn" htmlFor="menu__toggle">
+          <span></span>
+        </label>
       <div className="game__answers">
       {variants.map((variant, index) => 
         <Variant
