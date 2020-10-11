@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import classNames from 'classnames';
 import date from '../../api/date.json';
 
 import '../GameMoney/GameMoney.scss';
-
 
 function GameMoney({ currentId }) {
    return (
@@ -14,7 +13,7 @@ function GameMoney({ currentId }) {
             <div
               className={classNames(
                 "money__purse",
-                {"money__rate": currentId === id, "money__gain": id < currentId}
+                { "money__rate": currentId === id, "money__gain": id < currentId }
               )}
               key={id}
             >
@@ -25,7 +24,7 @@ function GameMoney({ currentId }) {
         ))
       }
     </div>
-  )
+  );
 }
 
 export default GameMoney;

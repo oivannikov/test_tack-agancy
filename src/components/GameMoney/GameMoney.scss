@@ -4,6 +4,9 @@
 .money {
   @include flex-center;
   height: $global-height;
+  background-color: $global-white-color;
+  text-align: center;
+  width: $width-block-money;
 
   &__bill {
     position: absolute;
@@ -20,15 +23,14 @@
     height: 40px;
     margin-bottom: 8px;
 
-
     &::before {
       @include purse-after-before;
-      left: -28%;
+      right: 240px;
     }
   
     &::after {
       @include purse-after-before;
-      right: -28%;
+      left: 240px;
     }
   }
 
@@ -47,25 +49,46 @@
   }
 }
 
+@media (max-width: 1080px) {
+  .money {
+    width: 100%;
+
+    &__purse {
+
+      &::after,
+      &::before {
+        width: calc((100vw - 240px) / 2);
+      }
+    }
+  }
+}
+
 @media (max-width: 440px) {
   .money {
     justify-content: flex-end;
-    // padding-top: -32px;
-    // понять как дать ему нижний отступ если будет свойство flex-end
 
     &__purse {
       background-image: url('../../images/priceMobile.png');
       background-repeat: no-repeat;
       height: 32px;
+
+      &:last-child {
+        margin-bottom: 32px;
+      }
+
+      &::after,
+      &::before {
+        top: 16px;
+      }
     }
 
     &__rate {
       background-image: url('../../images/priceMobileActive.png');
       color: #ff8b37;
-  
+
       &::after,
       &::before {
-        background-color: #ff8b37
+        background-color: #ff8b37;
       }
     }
   }

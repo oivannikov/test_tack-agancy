@@ -2,10 +2,9 @@
 @import '../../generalStyles/_mixins.scss';
 
 .start {
-
   &__clip {
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     height: 100%;
     width: 100%;
     background: rgba(255, 243, 235, 1);
@@ -15,24 +14,20 @@
   &__content {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    padding-right: 160px;
+    height: 100vh;
   }
 
   &__game {
-    max-width: $width-start-game;
-    margin-right: 160px;
+    margin-left: 50px;
   }
 
   &__heading {
-    width: 500px;
+    width: $width-heading;
   }
 
   &__text {
-    color: #1C1C21;
+    color: $color-elements;
     font-size: 56px;
   }
 
@@ -50,29 +45,15 @@
     font-size: $button-font-size;
     letter-spacing: 0.5px;
     cursor: pointer;
+
+    &:active {
+      background-color: #e87928;
+    }
   }
 }
 
 @media (max-width: 1280px) {
   .start {
-    &__content {
-      left: 50%;
-    }
-  }
-}
-
-@media (max-width: 1080px) {
-  .start {
-    &__content {
-      flex-direction: column;
-      justify-content: space-around;
-      height: 100vh;
-    }
-
-    &__game {
-      margin: 0 0 15% 80%;
-    }
-
     &__text {
       font-size: 46px;
     }
@@ -83,34 +64,73 @@
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1080px) {
   .start {
-    &__game {
-      text-align: center;      
-      margin: 0 auto;
+
+    &__content {
+      position: relative;
+      padding-right: 0;
     }
 
-    &__button {
-      margin-bottom: 42px;
+    &__game {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      margin-left: 0;
+    }
+
+    .thumbsUp {
+      position: absolute;
+      top: 0;
     }
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 940px) {
   .start {
-    &__text {
-      font-size: 32px;
-      margin-bottom: 100px;
+    &__game {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .start {
+    &__content {
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 78px 16px 48px;
+      height: calc(100vh - 126px);
     }
 
-    &__heading {
-      max-width: 285px;
+    &__text {
+      font-size: 32px;
     }
 
     &__button {
       padding: 16px 0;
       font-size: 14px;
-      margin-top: 0;
+      margin-top: 102px;
+    }
+
+    &__game {
+      position: static;
+    }
+
+    &__heading {
+      width: 100%;
+    }
+
+    .thumbsUp {
+      position: static;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .start {
+    &__button {
+      width: 100%;
     }
   }
 }

@@ -1,36 +1,53 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+
+import PropTypes from 'prop-types';
 
 import '../Game/Game.scss';
 
 import GameMoney from "../GameMoney/GameMoney";
 import Variant from "../Variant/Variant";
+import Hamburger from "../Features/Hamburger/Hamburger";
 
-function Game({ date, handleGame, getCurrentPrice}) {
-  const [index, setIndex] = useState(0);
+function Game({ date, handleGame, getCurrentPrice }) {
+  const [currentQestion, setCurrentQestion] = useState(0);
   const [isWrong, setWrong] = useState(false);
   const [isCorrect, setCorrect] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState('');
-  const { variants, variantsAlphabets, question, answer, id} = date[index];
+  const {
+    variants,
+    variantsAlphabets,
+    question,
+    answer,
+    id
+  } = date[currentQestion];
 
-  function handleVariant(e, variantText) {
-    e.preventDefault();
-  
-    setSelectedVariant(variantText);
-    if (index >= date.length - 1 || variantText !== answer) {
-      getCurrentPrice(index, variantText);
-      setWrong(true);
+  function nextQuestion(currentQestion, textVariant) {
+    setCorrect(true);
       setTimeout(() => {
-        setIndex(0);
-        handleGame();
-        setWrong(() => false);
-      }, 400)
-      // Все работает верно только не понимаю почему последнее выберается красным цветом!!! Разобраться позже
-    } else {
-      setCorrect(true);
-      setTimeout(() => {
-        setIndex((prev) => prev + 1);
+        setCurrentQestion(prev => currentQestion === date.length - 1 ? prev : prev + 1);
+        getCurrentPrice(currentQestion, textVariant);
         setCorrect(false);
-      }, 400)
+      }, 400);
+  }
+
+  function endGame(currentQestion, textVariant) {
+    getCurrentPrice(currentQestion, textVariant);
+    setWrong(true);
+    setTimeout(() => {
+      setCurrentQestion(0);
+      handleGame();
+      setWrong(false);
+    }, 400);
+  }
+
+  function handleVariant(e, textVariant) {
+    e.preventDefault();
+    setSelectedVariant(textVariant);
+  
+    if (currentQestion > date.length - 1 || textVariant !== answer) {
+      endGame(currentQestion, textVariant);
+    } else {
+      nextQuestion(currentQestion, textVariant);
     }
   }
 
@@ -39,26 +56,9 @@ function Game({ date, handleGame, getCurrentPrice}) {
       <h3 className="game__question">
         {question}
       </h3>
-      {/* <input
-          className="game__toggle"
-          type="checkbox"
-          id="toggle"
-          name="toggle"
-        />
-        <label className="game__hamburger" htmlFor="toggle">
-          <span></span>
-        </label> */}
-        <input
-          className="menu__toggle"
-          type="checkbox"
-          id="menu__toggle"
-          name="toggle"
-        />
-        <label className="menu__btn" htmlFor="menu__toggle">
-          <span></span>
-        </label>
+      <Hamburger />
       <div className="game__answers">
-      {variants.map((variant, index) => 
+      {variants.map((variant, index) =>
         <Variant
           variantText={variant}
           key={index}
@@ -74,6 +74,19 @@ function Game({ date, handleGame, getCurrentPrice}) {
       </div>
     </div>
   );
+}
+
+Game.propTypes = {
+  date: PropTypes.arrayOf(PropTypes.shape({
+    variants: PropTypes.arrayOf(PropTypes.string).isRequired,
+    variantsAlphabets: PropTypes.arrayOf(PropTypes.string),
+    question: PropTypes.string.isRequired,
+    answer: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  })).isRequired,
+
+  handleGame: PropTypes.func.isRequired,
+  getCurrentPrice: PropTypes.func.isRequired,
 }
 
 export default Game;

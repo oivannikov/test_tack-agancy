@@ -23,8 +23,7 @@
   height: 1px;
   width: 68px;
   background-color: $global-background-color;
-  bottom: 45%;
-  transform: translateY(-50%);
+  top: 20px;
 }
 
 @mixin answer-after-before {
@@ -37,5 +36,3 @@
   z-index: 10;
   transform: translateY(-50%);
 }
-
-

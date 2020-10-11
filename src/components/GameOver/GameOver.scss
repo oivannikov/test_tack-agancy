@@ -2,15 +2,10 @@
 @import '../../generalStyles/_mixins.scss';
 
 .losing {
-
   &__content {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    height: 100vh;
   }
 
   &__game {
@@ -44,13 +39,17 @@
     font-size: $button-font-size;
     letter-spacing: 0.5px;
     cursor: pointer;
+
+    &:active {
+      background-color: #e87928;
+    }
   }
 }
 
 @media (max-width: 1280px) {
   .losing {
-    &__content {
-      left: 50%;
+    &__text {
+      font-size: 46px;
     }
 
     &__game {
@@ -63,12 +62,14 @@
   .losing {
     &__content {
       flex-direction: column;
-      justify-content: space-around;
-      height: 100vh;
+      justify-content: space-between;
+      padding: 78px 16px 48px;
+      height: calc(100vh - 126px);
     }
-
+  
     &__game {
-      margin: 0 0 15% 80%;
+      text-align: center;
+      margin-left: 0;
     }
 
     &__text {
@@ -77,24 +78,10 @@
   }
 }
 
-@media (max-width: 940px) {
-  .losing {
-    &__game {
-      text-align: center;      
-      margin: 0 auto;
-    }
-   
-    &__button {
-      margin-bottom: 42px;
-    }
-  }
-}
-
-@media (max-width: 540px) {
+@media (max-width: 480px) {
   .losing {
     &__text {
-      font-size: 36px;
-      margin-bottom: 100px;
+      font-size: 32px;
     }
 
     &__total {
@@ -104,28 +91,20 @@
     &__button {
       padding: 16px 0;
       font-size: 14px;
-      margin-top: 0;
+      margin-top: 102px;
     }
 
     &__game {
-      width: 370px;
+      width: 286px;
     }
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 320px) {
   .losing {
-    &__total {
-      font-size: 18px;
-      margin-bottom: 50px;
-    }
-
-    &__game {
+    &__button {
       width: 100%;
     }
-
-    &__text {
-      font-size: 32px;
-    }
   }
 }
+

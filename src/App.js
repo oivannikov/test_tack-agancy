@@ -15,7 +15,6 @@ import Game from './components/Game/Game';
 function App() {
   const [isStart, setStart] = useState(true);
   const [isGame, setGame] = useState(false);
-  const [isGameOver, setGameOver] = useState(false);
   const [currentPrice, setCorrentPrice] = useState(null);
 
   function handleButton() {
@@ -39,7 +38,9 @@ function App() {
     }
 
     if (index === date.length - 1 && variantText === date[index].answer) {
-      return setCorrentPrice("1,000,000");
+      setCorrentPrice("1,000,000");
+
+      return handleGame();
     }
 
     price = date[--index].currentPrice;
@@ -57,7 +58,10 @@ function App() {
                 handleGame={handleGame}
                 getCurrentPrice={getCurrentPrice}
               />
-            : <GameOver handleStart={handleStart} currentPrice={currentPrice}/>
+            : <GameOver
+                handleStart={handleStart}
+                currentPrice={currentPrice}
+              />
       }
     </main>
   );

@@ -4,10 +4,13 @@ import classNames from 'classnames';
 
 import '../Variant/Variant.scss';
 
-function Variant({ variantText, variantAlphabet, handleVariant, isCorrect, isWrong}) {
+function Variant({ variantText, variantAlphabet, handleVariant, isCorrect, isWrong }) {
   return (
     <div
-      className={classNames("answer", {"answer__correct": isCorrect, "answer__wrong": isWrong})}
+      className={classNames(
+        "answer",
+        { "answer__correct": isCorrect, "answer__wrong": isWrong }
+      )}
       onClick={(e) => handleVariant(e, variantText)}
     >
       <div className="answer__field"></div>
@@ -16,7 +19,7 @@ function Variant({ variantText, variantAlphabet, handleVariant, isCorrect, isWro
         {variantText}
       </div>
     </div>
-  )
+  );
 }
 
 export default Variant;

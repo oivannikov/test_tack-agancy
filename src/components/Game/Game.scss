@@ -1,12 +1,12 @@
 @import '../../generalStyles/_var.scss';
 @import '../../generalStyles/_mixins.scss';
+@import '../Features/Hamburger/Hamburger.scss';
 
 .game {
   @include flex-spaceBetween;
   height: $global-height;
-  padding-top: 133px;
-  padding-left: 80px;
-  height: calc(100vh - 133px);
+  padding: 133px 0 122px 80px;
+  height: calc(100vh - 255px);
 
   &__question {
     width: $width-block-question;
@@ -17,7 +17,6 @@
 
   &__answers {
     display: flex;
-    margin-bottom: 122px;
     flex-wrap: wrap;
     width: 900px;
   }
@@ -29,100 +28,36 @@
   }
 
   &__money {
-    width: $width-block-money;
-    height: 100%;
     position: absolute;
     right: 0;
     top: 0;
-    background-color: $global-white-color;
-    text-align: center;
   }
 }
-
 
 @media (max-width: 1280px) {
   .game {
+    padding-bottom: 80px;
+    height: calc(100vh - 213px);
+
     &__answers {
       flex-direction: column;
       width: 500px;
-      margin-bottom: 80px;
       align-items: center;
     }
 
-    &__answers-bottom {
-      margin-top: -16px;
-    }
-  }
-}
-
-@media (max-width: 1180px) {
-  .game {
     &__question {
-      width: 424px;
+      display: block;
+      text-align: center;
+      width: 500px;
     }
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1080px) {
   .game {
     align-items: center;
-    padding-top: 133px;
     padding-left: 0;
 
-    &__money {
-      visibility: hidden;
-    }
-
-    // &__hamburger {
-    //   position: absolute;
-    //   right: 23px;
-    //   padding: 14px;
-    //   width: 18px;
-    //   height: 12px;
-    //   top: 0;
-    //   right: 12px;
-    //   text-align: center;
-    //   cursor: pointer;
-
-    //   &::after {
-    //     content: '';
-    //     background-color: blue;
-    //     position: absolute;
-    //     width: 15px;
-    //     height: 2px;
-    //     top: 20px;
-    //     transform: translate(-50%, -50%);
-    //   }
-
-    //   &::before {
-    //     content: '';
-    //     background-color: blue;
-    //     position: absolute;
-    //     width: 15px;
-    //     height: 2px;
-    //     top: 24px;
-    //     transform: translate(-50%, -50%);
-    //   }
-    // }
-
-    // &__toggle:checked ~ {
-    //   .game__money {
-    //     display: block;
-    //     width: 100%;
-    //     background-color: #e5e5e5;
-    //     z-index: 10;
-    //   }
-
-    //   .game__hamburger::after {
-    //     transform: rotate(45deg);
-    //     top: 24px; 
-    //     z-index: 11;
-    //   }
-    //   .game__hamburger::before {
-    //     transform: rotate(-45deg);
-    //     z-index: 11;
-    //   }
-    // }
     &__question {
       text-align: center;
       width: calc(100% - 80px);
@@ -131,71 +66,29 @@
     &__answers {
       width: 100%;
     }
-  }
 
-  .menu__toggle {
-    opacity: 0;
-  }
-  
-  .menu__btn {
-      display: flex; /* используем flex для центрирования содержимого */
-      align-items: center;  /* центрируем содержимое кнопки */
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 16px;
-      height: 14px;
-      cursor: pointer;
-      z-index: 11;
+    &__money {
+      display: none;
+      width: 100%;
     }
-  
-  .menu__btn > span,
-  .menu__btn > span::before,
-  .menu__btn > span::after {
-    display: flex;
-    position: absolute;
-  
-    width: 100%;
-    height: 2px;
-    background-color: #1C1C21;
-  }
-  
-  .menu__btn > span::before {
-    content: '';
-    top: -8px;
-  }
-  
-  .menu__btn > span::after {
-    content: '';
-    top: 8px;
   }
 
-  .menu__toggle:checked ~ {
+  .hamburger__toggle:checked ~ {
     .game__money {
-      visibility: visible;
-      z-index: 10;
-      background-color: #e5e5e5;
+      display: block;
+
+      & .money {
+        background-color: #e5e5e5;
+      }
+    }
+
+    .game {
+      &__question,
+      &__answers {
+        display: none;
+      }
     }
   }
-  .menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
-  }
-
-  .menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
-  }
-
-  .menu__toggle:checked ~ .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-
-  .menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    left: 0;
-  }
-  
 }
 
 @media (max-width: 640px) {
@@ -208,17 +101,12 @@
 
 @media (max-width: 440px) {
   .game {
+    padding-bottom: 24px;
+    height: calc(100vh - 157px);
+
     &__question {
       font-size: 18px;
       width: 288px;
-    }
-
-    &__answers-bottom {
-      margin-top: -8px;
-    }
-    
-    &__answers {
-      margin-bottom: 24px;
     }
   }
 }
