@@ -11,7 +11,6 @@ import GameOver from './components/GameOver/GameOver';
 import Start from './components/Start/Start';
 import Game from './components/Game/Game';
 
-
 function App() {
   const [isStart, setStart] = useState(true);
   const [isGame, setGame] = useState(false);
@@ -32,13 +31,13 @@ function App() {
 
   function getCurrentPrice(index, variantText) {
     let price = '';
-  
+
     if (index === 0) {
-      return setCorrentPrice("0");
+      return setCorrentPrice('0');
     }
 
     if (index === date.length - 1 && variantText === date[index].answer) {
-      setCorrentPrice("1,000,000");
+      setCorrentPrice('1,000,000');
 
       return handleGame();
     }
@@ -48,7 +47,7 @@ function App() {
   }
 
   return (
-    <main className={classNames("main", {background: isGame})}>
+    <main className={classNames('main', { background: isGame })}>
       {
         isStart
           ? <Start handleButton={handleButton} />
@@ -58,10 +57,7 @@ function App() {
                 handleGame={handleGame}
                 getCurrentPrice={getCurrentPrice}
               />
-            : <GameOver
-                handleStart={handleStart}
-                currentPrice={currentPrice}
-              />
+            : <GameOver handleStart={handleStart} currentPrice={currentPrice} />
       }
     </main>
   );

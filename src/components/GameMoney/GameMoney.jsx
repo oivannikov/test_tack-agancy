@@ -1,24 +1,25 @@
 import React from 'react';
 
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import date from '../../api/date.json';
 
-import '../GameMoney/GameMoney.scss';
+import './GameMoney.scss';
 
 function GameMoney({ currentId }) {
-   return (
+  return (
     <div className="money">
       {
-        [...date].reverse().map(({id, currentPrice}) => (
-            <div
-              className={classNames(
-                "money__purse",
-                { "money__rate": currentId === id, "money__gain": id < currentId }
-              )}
-              key={id}
-            >
+        [...date].reverse().map(({ id, currentPrice }) => (
+          <div
+            className={classNames(
+              'money__purse',
+              { money__rate: currentId === id, money__gain: id < currentId }
+            )}
+            key={id}
+          >
             <div className="money__bill">
-              ${currentPrice}
+              { `${currentPrice}` }
             </div>
           </div>
         ))
@@ -26,5 +27,9 @@ function GameMoney({ currentId }) {
     </div>
   );
 }
+
+GameMoney.propTypes = {
+  currentId: PropTypes.number.isRequired,
+};
 
 export default GameMoney;

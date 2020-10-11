@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import PropTypes from 'prop-types';
 
-import '../Game/Game.scss';
+import './Game.scss';
 
-import GameMoney from "../GameMoney/GameMoney";
-import Variant from "../Variant/Variant";
-import Hamburger from "../Features/Hamburger/Hamburger";
+import GameMoney from '../GameMoney/GameMoney';
+import Variant from '../Variant/Variant';
+import Hamburger from '../Features/Hamburger/Hamburger';
 
 function Game({ date, handleGame, getCurrentPrice }) {
   const [currentQestion, setCurrentQestion] = useState(0);
@@ -18,16 +18,18 @@ function Game({ date, handleGame, getCurrentPrice }) {
     variantsAlphabets,
     question,
     answer,
-    id
+    id,
   } = date[currentQestion];
 
   function nextQuestion(currentQestion, textVariant) {
     setCorrect(true);
-      setTimeout(() => {
-        setCurrentQestion(prev => currentQestion === date.length - 1 ? prev : prev + 1);
-        getCurrentPrice(currentQestion, textVariant);
-        setCorrect(false);
-      }, 400);
+    setTimeout(() => {
+      setCurrentQestion((prev) => {
+        return currentQestion === date.length - 1 ? prev : prev + 1;
+      });
+      getCurrentPrice(currentQestion, textVariant);
+      setCorrect(false);
+    }, 400);
   }
 
   function endGame(currentQestion, textVariant) {
@@ -43,7 +45,7 @@ function Game({ date, handleGame, getCurrentPrice }) {
   function handleVariant(e, textVariant) {
     e.preventDefault();
     setSelectedVariant(textVariant);
-  
+
     if (currentQestion > date.length - 1 || textVariant !== answer) {
       endGame(currentQestion, textVariant);
     } else {
@@ -58,16 +60,18 @@ function Game({ date, handleGame, getCurrentPrice }) {
       </h3>
       <Hamburger />
       <div className="game__answers">
-      {variants.map((variant, index) =>
-        <Variant
-          variantText={variant}
-          key={index}
-          variantAlphabet={variantsAlphabets[index]}
-          handleVariant={handleVariant}
-          isCorrect={isCorrect && selectedVariant === variant}
-          isWrong={isWrong && selectedVariant === variant}
-        />
-      )}
+        {
+          variants.map((variant, index) => (
+            <Variant
+              variantText={variant}
+              key={index}
+              variantAlphabet={variantsAlphabets[index]}
+              handleVariant={handleVariant}
+              isCorrect={isCorrect && selectedVariant === variant}
+              isWrong={isWrong && selectedVariant === variant}
+            />
+          ))
+        }
       </div>
       <div className="game__money">
         <GameMoney currentId={id} />
@@ -87,6 +91,6 @@ Game.propTypes = {
 
   handleGame: PropTypes.func.isRequired,
   getCurrentPrice: PropTypes.func.isRequired,
-}
+};
 
 export default Game;

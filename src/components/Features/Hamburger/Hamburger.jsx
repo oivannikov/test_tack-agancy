@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../Features/Hamburger/Hamburger.scss';
+import './Hamburger.scss';
 
 function Hamburger() {
   return (
@@ -8,11 +8,11 @@ function Hamburger() {
       <input
         className="hamburger__toggle"
         type="checkbox"
-        id="hamburger__toggle"
+        id="hamburger"
         name="toggle"
       />
-      <label className="hamburger__btn" htmlFor="hamburger__toggle">
-        <span></span>
+      <label className="hamburger__btn" htmlFor="hamburger">
+        <span />
       </label>
     </>
   );
