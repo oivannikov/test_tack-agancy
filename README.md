@@ -1,4 +1,4 @@
-[DEMO](https://oivannikov.github.io/test_task-genesis/)
+[DEMO](https://oivannikov.github.io/game_millioner/)
 
 #Инструкция по установке:
 
